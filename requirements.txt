@@ -1,0 +1,9 @@
+ask_sdk_core
+ask_sdk_model
+ask-sdk-dynamodb-persistence-adapter
+json
+requests
+os
+pprint
+urllib
+python-pptx
