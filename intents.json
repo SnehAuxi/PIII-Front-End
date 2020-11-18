@@ -1,0 +1,627 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "presslides",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Cancel"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "Stop"
+                    ]
+                },
+                {
+                    "name": "HelloWorldIntent",
+                    "slots": [],
+                    "samples": [
+                        "hello",
+                        "how are you",
+                        "say hi world",
+                        "say hi",
+                        "hi",
+                        "say hello world",
+                        "say hello"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Presentationmaker",
+                    "slots": [
+                        {
+                            "name": "Topic",
+                            "type": "AMAZON.Genre",
+                            "samples": [
+                                "Here is the {Topic} of the presentation",
+                                "{Topic}"
+                            ]
+                        },
+                        {
+                            "name": "Slides",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Slides}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "create a presentation",
+                        "create a presentation on {Topic} of {Slides}",
+                        "create a presentation on {Topic}"
+                    ]
+                },
+                {
+                    "name": "Barchart",
+                    "slots": [
+                        {
+                            "name": "Label",
+                            "type": "AMAZON.Country",
+                            "samples": [
+                                "{Label}"
+                            ]
+                        },
+                        {
+                            "name": "Value",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Value}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "add barchart",
+                        "barchart",
+                        "I need a barchart"
+                    ]
+                },
+                {
+                    "name": "Updatebarchart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I  want to  update barchart label-value pair",
+                        "Update barchart"
+                    ]
+                },
+                {
+                    "name": "Deletebarchart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to delete barchart label-value pair",
+                        "Delete barchart"
+                    ]
+                },
+                {
+                    "name": "Linechart",
+                    "slots": [
+                        {
+                            "name": "Label",
+                            "type": "AMAZON.Country",
+                            "samples": [
+                                "{Label}"
+                            ]
+                        },
+                        {
+                            "name": "Value",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Value}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want a line chart.",
+                        "line chart",
+                        "add line chart"
+                    ]
+                },
+                {
+                    "name": "Updatelinechart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to update line chart label-value pair",
+                        "Update line chart"
+                    ]
+                },
+                {
+                    "name": "Deletelinechart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Delete line chart label-value pair.",
+                        "Delete line chart"
+                    ]
+                },
+                {
+                    "name": "Piechart",
+                    "slots": [
+                        {
+                            "name": "Category",
+                            "type": "AMAZON.Country",
+                            "samples": [
+                                "{Category}"
+                            ]
+                        },
+                        {
+                            "name": "Percentag",
+                            "type": "AMAZON.NUMBER",
+                            "samples": [
+                                "{Percentag}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want a pie chart",
+                        "Add pie chart",
+                        "Pie chart"
+                    ]
+                },
+                {
+                    "name": "Updatepiechart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Update  the pie chart",
+                        "Update pie chart"
+                    ]
+                },
+                {
+                    "name": "Deletepiechart",
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "samples": [
+                                "{Position}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to delete a category-percentage pair in Pie chart",
+                        "Delete pie chart"
+                    ]
+                },
+                {
+                    "name": "Finalizepresentation",
+                    "slots": [],
+                    "samples": [
+                        "Finalize"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "Presentationmaker",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Topic",
+                            "type": "AMAZON.Genre",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1102091988645.510806243148"
+                            }
+                        },
+                        {
+                            "name": "Slides",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1102091988645.1235984151153"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Barchart",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Label",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162692977858.527454873653"
+                            }
+                        },
+                        {
+                            "name": "Value",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162692977858.118909655410"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Updatebarchart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1015129064366.570877779950"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Deletebarchart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.152978153238.187877371338"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Linechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Label",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.891258139874.821552442927"
+                            }
+                        },
+                        {
+                            "name": "Value",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.891258139874.79517426487"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Updatelinechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.726107381435.1400983747711"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Deletelinechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1564936654715.1166426276697"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Piechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Category",
+                            "type": "AMAZON.Country",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1522471397064.1313552554945"
+                            }
+                        },
+                        {
+                            "name": "Percentag",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1522471397064.1365236379206"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Updatepiechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1197416533247.1135099717421"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Deletepiechart",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Position",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.529337906063.468055975032"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1102091988645.510806243148",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Give me the topic of the presentation."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the topic of the presentation"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.1235984151153",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Tell the number of slides."
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Please give the number of slides."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.982040485296",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Give the labels for the bar chart."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.908382467261",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the y values."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.69116276145",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the title of the barchart"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.238715535685",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the xvalue."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1102091988645.1385726010996",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the yvalue."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1162692977858.527454873653",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify a label"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1162692977858.118909655410",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify a value."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.152978153238.187877371338",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1015129064366.570877779950",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.891258139874.821552442927",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify a label."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.891258139874.79517426487",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify a value."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.726107381435.1400983747711",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1564936654715.1166426276697",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1522471397064.1313552554945",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify a category."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1522471397064.1365236379206",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Please specify the  percentage."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1197416533247.1135099717421",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.529337906063.468055975032",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which position?"
+                    }
+                ]
+            }
+        ]
+    }
+}
